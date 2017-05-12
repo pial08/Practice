@@ -1,0 +1,46 @@
+DS:
+Sort:
+bubble, 
+quick, 
+merge, 
+selection,
+insertion, 
+counting,
+radix.
+
+Linked List
+Stack,
+Queue,
+BST,
+Red-Black Tree,
+AVL tree.
+
+Hashing
+Binary Heap
+Trie
+
+Algorithm:
+
+Graph: 
+BFS, 
+DFS,
+Dijkstra
+Bellman-Ford,
+Floyed-Warshal
+
+MST:
+Prim,
+Kruskal
+
+Flow-Control Algorithm
+
+Dynamic:
+Coin change, 
+Knapsack,
+Matrix Multiplication
+LIS, 
+LCS 
+
+String Matching:
+KMP Algorithm,
+Rabin-Karp Algorithm

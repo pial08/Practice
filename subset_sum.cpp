@@ -1,82 +1,30 @@
-#include <stdio.h>
-#include <iostream>
-#include <math.h>
-#include <string.h>
-#include <set>
-
+// C++ program to print largest contiguous array sum
+#include<iostream>
+#include<climits>
 using namespace std;
 
-int result[100];
-
-string dec2Bin(int number)
+int maxSubArraySum(int a[], int size)
 {
-    if ( number == 0 ) return "0";
-    if ( number == 1 ) return "1";
+    int max_so_far = INT_MIN, max_ending_here = 0;
 
-    if ( number % 2 == 0 )
-        return dec2Bin(number / 2) + "0";
-    else
-        return dec2Bin(number / 2) + "1";
-}
-
-int bin2Dec(string number)
-{
-    int result = 0, pow = 1;
-    for ( int i = number.length() - 1; i >= 0; --i, pow <<= 1 )
-        result += (number[i] - '0') * pow;
-
-    return result;
-}
-
-string make_perfect_binary(string bin, int len)
-{
-    int n = bin.length();
-    string str = "";
-    int sub = len - n;
-    for(int i=0;i<sub;i++)
+    for (int i = 0; i < size; i++)
     {
-        str += "0";
-    }
-    str += bin;
-    return str;
+        max_ending_here = max_ending_here + a[i];
+        if (max_so_far < max_ending_here)
+            max_so_far = max_ending_here;
 
+        if (max_ending_here < 0)
+            max_ending_here = 0;
+    }
+    return max_so_far;
 }
 
-
-
+/*Driver program to test maxSubArraySum*/
 int main()
 {
-    int arr[] = {2, 3, 4, 5, 6};
-    int n = sizeof(arr)/sizeof(arr[0]);
-    int n_set = pow(2,n);
-    int sum = 0;
-    set<int> s;
-
-    for(int i=0;i<n_set;i++)
-    {
-        string bin = dec2Bin(i);
-        bin = make_perfect_binary(bin,n);
-        for(int i=0;i<n;i++)
-        {
-            if(bin[i] == '1')
-            {
-                sum += arr[i];
-            }
-        }
-        //result[i-1] = sum;
-        s.insert(sum);
-        sum = 0;
-
-    }
-    set<int> :: iterator it;
-    for(it=s.begin();it!=s.end();it++)
-    {
-        cout << *it << " ";
-
-    }
-    cout << endl;
-    //string bin = dec2Bin(1);
-    //cout << make_perfect_binary(bin,n);
-    //cout << n_set;
+    int a[] = {5, -2, 2, -30};
+    int n = sizeof(a)/sizeof(a[0]);
+    int max_sum = maxSubArraySum(a, n);
+    cout << "Maximum contiguous sum is " << max_sum;
     return 0;
 }

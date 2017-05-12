@@ -60,7 +60,7 @@ int main()
 
 
 
-    vector <int> v;
+    /*vector <int> v;
     for(int i = 0; i < 6; i++)
     {
         v.push_back(i);
@@ -76,6 +76,8 @@ int main()
             cout << *it;
         cout << endl;
     }while(next_permutation(v.begin(), v.end()));
+
+    */
 
 
 }

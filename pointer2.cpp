@@ -16,7 +16,7 @@ void fun(int *p)
 
 int compare(int a, int b)
 {
-    if(a > b )
+    if(a < b )
         return -1;
     else
         return 1;

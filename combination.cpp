@@ -1,5 +1,8 @@
 // Program to print all combination of size r in an array of size n
 #include <stdio.h>
+#include <iostream>
+
+using namespace std;
 void combinationUtil(int arr[], int data[], int start, int end,
                      int index, int r);
 
@@ -42,11 +45,32 @@ void combinationUtil(int arr[], int data[], int start, int end,
     }
 }
 
+int number[10];
+void combination(int n, int k, int at, int last)
+{
+    cout << "PIAL\n";
+    if(at == k + 1)
+    {
+        for(int i = 1; i <= k; i++)
+            cout << number[i] << " ";
+        cout << endl;
+        return;
+    }
+
+    for(int i = last + 1; i <= n - k + at; i++)
+    {
+        number[at] = i;
+        combination(n, k, at + 1, i);
+    }
+}
+
 // Driver program to test above functions
 int main()
 {
-    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8};
-    int r = 8;
+    int arr[] = {1, 2, 3, 4};
+    int r = 2;
     int n = sizeof(arr)/sizeof(arr[0]);
-    printCombination(arr, n, r);
+    //printCombination(arr, n, r);
+    combination(3, 2, 1, 0);
+
 }
